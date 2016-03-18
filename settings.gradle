@@ -1,0 +1,1 @@
+include ':app', ':dashclock-api', ':dashclock-app'

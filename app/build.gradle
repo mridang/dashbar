@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'Default'
+            keyPassword 'as23a6350'
+            storeFile file('/Users/mridang/Dropbox (Personal)/Java/Android/application.keystore')
+            storePassword 'as23a6350'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+    defaultConfig {
+        applicationId "com.mridang.dashbar"
+        minSdkVersion 21
+        //noinspection OldTargetApi
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+        signingConfig signingConfigs.config
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    productFlavors {
+    }
+}
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://github.com/Goddchen/mvn-repo/raw/master/'
+    }
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:support-v13:23.2.0'
+    compile project(':dashclock-api')
+    compile project(':dashclock-app')
+}
