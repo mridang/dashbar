@@ -177,7 +177,6 @@ public class NotificationService extends Service {
             super.onAvailableExtensionsChanged();
 
             List<ComponentName> active = ExtensionManager.getInstance(mService).getInternalActiveExtensionNames();
-            System.out.println(active);
             Set<ComponentName> worldReadableExtensions = new HashSet<>();
             for (ExtensionListing info : getAvailableExtensions(!areNonWorldReadableExtensionsVisible())) {
                 if (active.contains(info.componentName())) {

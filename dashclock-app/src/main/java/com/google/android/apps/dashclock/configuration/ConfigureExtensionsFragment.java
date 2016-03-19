@@ -172,10 +172,7 @@ public class ConfigureExtensionsFragment extends Fragment implements
                         }
                         repopulateAvailableExtensions();
                         mSelectedExtensionsAdapter.notifyDataSetChanged();
-                        System.out.println(mSelectedExtensions);
                         mExtensionManager.setInternalActiveExtensions(mSelectedExtensions);
-                        System.out.println("Active: " + ExtensionManager.getInstance(getContext()).getInternalActiveExtensionNames());
-                        System.out.println(PreferenceManager.getDefaultSharedPreferences(getContext()).getString(ExtensionManager.PREF_ACTIVE_EXTENSIONS, ""));
                     }
                 });
         mListView.setOnScrollListener(mSwipeDismissTouchListener.makeScrollListener());
@@ -213,7 +210,6 @@ public class ConfigureExtensionsFragment extends Fragment implements
 
     @Override
     public void onPause() {
-        System.out.println("onPauses");
         super.onPause();
         mExtensionManager.setInternalActiveExtensions(mSelectedExtensions);
     }
